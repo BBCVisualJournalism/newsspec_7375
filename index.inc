@@ -8,12 +8,24 @@
     .js #vote-container .js{
         display: block;
     }
+
+    /* 
+        Need to specify story-body to get enough "points" for CSS to apply.
+        Should also be covered if "story-body" is removed in future.
+    */
+    .story-body ul li.vote-item, .vote-item {
+        list-style-type: none;
+        background-image: none;
+        padding: 0;
+    }
 </style>
 <script type="text/javascript">
     if(document.documentElement){document.documentElement.className+=" js";}
     require(["jquery-1.9"], function($) {
-        var headUrl = "https://www.int.bbc.co.uk/ivote/embed/head/js/2c970c9c436d1f5f01436d22616f0002/en_GB";
-        var bodyUrl = "https://www.int.bbc.co.uk/ivote/embed/body/js/2c970c9c436d1f5f01436d22616f0002/en_GB?parentURL=https%3A%2F%2Fwww.int.bbc.co.uk%2Fivotetest%2Fembed%2Fclient%2Fjs%2F2c970c9c436d1f5f01436d22616f0002%3FuseJsonp%3Dtrue";
+        var env     = "int";
+        var iVoteId = "2c970c9c436d1f5f01436d22616f0002";
+        var headUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/head/js/" + iVoteId + "/en_GB";
+        var bodyUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/body/js/" + iVoteId + "/en_GB?parentURL=https%3A%2F%2Fwww." + env + ".bbc.co.uk%2Fivotetest%2Fembed%2Fclient%2Fjs%" + iVoteId + "%3FuseJsonp%3Dtrue";
         var useJsonp = 1;
         var headSnippet, bodySnippet, $head, $voteContainer;
         var error = false;
