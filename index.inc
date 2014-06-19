@@ -1,12 +1,45 @@
 <style type="text/css">
+
+    #responsive-news #vote-container .vote-detail__title{
+        position: static;
+    }
     #vote-container .js,
     .js #vote-container .nojs{
         display: none;
+    }
+    #vote-container .vote-detail__title{
+        position: absolute;
+        margin-top: 0.1em;
+    }
+    #vote-container .vote-message--thanks,
+    #vote-container .vote-message--already-voted{
+        background: #000000;
+        width: 10em;
+        padding: 0.5em;
+        color: #ffffff;
+        font-size: 2em;
+    }
+
+    #vote-container .vote-message--already-voted{
+       width: 11em;
     }
     
     #vote-container .nojs,
     .js #vote-container .js{
         display: block;
+        background: url('/news/special/2014/newsspec_7375/css/spinner.gif');
+        background-repeat: no-repeat;
+        background-position: 50% 0%;
+        width: 100%;
+        height: 48px;
+        padding: 8px;
+    }
+    #vote-container .nojs,
+    .js #vote-container .js p{
+        text-align: center;
+        margin-top: 32px;
+        padding-left: 16px;
+        font-size: 1.2em;
     }
 
     /* 
@@ -93,8 +126,7 @@
     });
 </script>
 
-<h1>iVote Test Page - Client-side HTML Snippet Embedding</h1>
 <div id="vote-container">
-    <span class="js">Loading...</span>
+    <span class="js"><p>Loading...</p></span>
     <span class="nojs">This vote requires Javascript.</span>
 </div>
