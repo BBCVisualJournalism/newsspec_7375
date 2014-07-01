@@ -42,6 +42,19 @@
         font-size: 1.2em;
     }
 
+    .vote-question__title {
+        font-size: 2em;
+    }
+
+    #responsive-news .vote-question__title {
+        font-size: 1.5em;
+    }
+
+    #ivoteMainContent .voteForm {
+        border-top: 0;
+        padding-top: 0;
+    }
+
     /* 
         Need to specify story-body to get enough "points" for CSS to apply.
         Should also be covered if "story-body" is removed in future.
@@ -55,8 +68,8 @@
 <script type="text/javascript">
     if(document.documentElement){document.documentElement.className+=" js";}
     require(["jquery-1.9"], function($) {
-        var env     = "int";
-        var iVoteId = "2c970c9c436d1f5f01436d22616f0002";
+        var env     = "stage";
+        var iVoteId = "2c97c4c1462875fe0146299ee5820017";
         var headUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/head/js/" + iVoteId + "/en_GB";
         var bodyUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/body/js/" + iVoteId + "/en_GB?parentURL=https%3A%2F%2Fwww." + env + ".bbc.co.uk%2Fivotetest%2Fembed%2Fclient%2Fjs%" + iVoteId + "%3FuseJsonp%3Dtrue";
         var useJsonp = 1;
@@ -86,7 +99,8 @@
         function getSnippet(url, callback, jsonpCallback){
             var opts = {
                 url: url,
-                success: callback
+                success: callback,
+                error: handleError
             };
             
             if(useJsonp){
