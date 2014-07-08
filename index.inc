@@ -1,18 +1,19 @@
 <style type="text/css">
 
-    #responsive-news #vote-container .vote-detail__title{
+    #responsive-news #vote-container .vote-detail__title {
         position: static;
     }
     #vote-container .js,
     .js #vote-container .nojs{
         display: none;
     }
-    #vote-container .vote-detail__title{
+    #vote-container .vote-detail__title {
+        left: 45px;
         position: absolute;
         margin-top: 0.1em;
     }
     #vote-container .vote-message--thanks,
-    #vote-container .vote-message--already-voted{
+    #vote-container .vote-message--already-voted {
         background: #000000;
         width: 10em;
         padding: 0.5em;
@@ -20,10 +21,18 @@
         font-size: 2em;
     }
 
-    #vote-container .vote-message--already-voted{
+    #vote-container .vote-message--already-voted {
        width: 11em;
     }
-    
+    #responsive-news #vote-container .vote-message--already-voted {
+        line-height: 1;
+        width: 100%;
+    }
+
+    .story-body form input.vote-radio-option {
+        width: auto;
+    }
+
     #vote-container .nojs,
     .js #vote-container .js{
         display: block;
@@ -35,7 +44,7 @@
         padding: 8px;
     }
     #vote-container .nojs,
-    .js #vote-container .js p{
+    .js #vote-container .js p {
         text-align: center;
         margin-top: 32px;
         padding-left: 16px;
@@ -44,6 +53,7 @@
 
     .vote-question__title {
         font-size: 2em;
+        line-height: 1em;
     }
 
     #responsive-news .vote-question__title {
@@ -59,17 +69,31 @@
         Need to specify story-body to get enough "points" for CSS to apply.
         Should also be covered if "story-body" is removed in future.
     */
-    .story-body ul li.vote-item, .vote-item {
+    .story-body ul li.vote-item,
+    .vote-item {
         list-style-type: none;
         background-image: none;
+        margin: 0;
         padding: 0;
+    }
+
+    .vote-item--option .vote-detail {
+        padding-left: 0;
+    }
+
+    #responsive-news .vote-item--option .vote-detail {
+        padding-left: 32px;
+    }
+
+    .vote-terms {
+        margin-bottom: 1.25em;
     }
 </style>
 <script type="text/javascript">
     if(document.documentElement){document.documentElement.className+=" js";}
     require(["jquery-1.9"], function($) {
-        var env     = "stage";
-        var iVoteId = "2c97c4c1462875fe0146299ee5820017";
+        var env     = "live";
+        var iVoteId = "2c97c5af46b375fe014711006464048f";
         var headUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/head/js/" + iVoteId + "/en_GB";
         var bodyUrl = "http://www." + env + ".bbc.co.uk/ivote/embed/body/js/" + iVoteId + "/en_GB?parentURL=https%3A%2F%2Fwww." + env + ".bbc.co.uk%2Fivotetest%2Fembed%2Fclient%2Fjs%" + iVoteId + "%3FuseJsonp%3Dtrue";
         var useJsonp = 1;
